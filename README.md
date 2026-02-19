@@ -31,7 +31,7 @@ A high-performance, aesthetically pleasing 3D architectural rendering applicatio
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/djottaroot/3d-render-mcp-app.git
 cd 3d-render-mcp-app
 
 # Install dependencies
@@ -54,8 +54,10 @@ bun run build
 
 ## 📦 Deployment
 
-This project is configured for one-click deployment on **Vercel**.
+This project is deployed on **Vercel**:  
+🚀 **Production URL**: [https://3d-render-mcp-app.vercel.app](https://3d-render-mcp-app.vercel.app)
 
+### Manual Deployment
 1. Connect your GitHub repository to Vercel.
 2. Vercel will automatically detect the `vercel.json` configuration.
 3. Set your environment variables (optional: `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` for persistent state).
@@ -66,4 +68,4 @@ This project is configured for one-click deployment on **Vercel**.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-Built with ❤️ by [Your Name/Organization]
+Built with ❤️ by Djotta
