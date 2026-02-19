@@ -5,6 +5,8 @@ import { registerTools } from "../src/server.js";
 const mcpHandler = createMcpHandler(
   (server) => {
     const distDir = path.join(process.cwd(), "dist");
+    console.log("distDir:", distDir)
+    console.log("server:", server)
     registerTools(server, distDir);
   },
   { serverInfo: { name: "XLab-3D-Render", version: "1.0.0" } },
