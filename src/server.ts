@@ -12,16 +12,21 @@ const DIST_DIR = (import.meta as any).filename?.endsWith(".ts")
   ? path.join((import.meta as any).dirname, "..", "dist")
   : (import.meta as any).dirname || process.cwd();
 
-// Initialize Checkpoint Store
-const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
-const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+// Initialize Checkpoint Store lazily
+let store: CheckpointStore | null = null;
+function getStore(): CheckpointStore {
+  if (store) return store;
+  const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
+  const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 
-const store: CheckpointStore = (redisUrl && redisToken)
-  ? RedisCheckpointStore.getInstance(redisUrl, redisToken)
-  : MemoryCheckpointStore.getInstance();
-
-if (store instanceof MemoryCheckpointStore) {
-  console.warn("[3D-Render] Using MemoryCheckpointStore (Redis credentials missing)");
+  if (redisUrl && redisToken) {
+    console.log("[3D-Render] Initializing RedisCheckpointStore");
+    store = RedisCheckpointStore.getInstance(redisUrl, redisToken);
+  } else {
+    console.warn("[3D-Render] Using MemoryCheckpointStore (Redis credentials missing)");
+    store = MemoryCheckpointStore.getInstance();
+  }
+  return store;
 }
 
 /**
@@ -78,8 +83,10 @@ Call 3d_read_me first to learn the element format.`,
       let resolvedElements: any[];
 
       if (restoreEl?.id) {
-        const base = await store.load(restoreEl.id);
+        console.log(`[3D-Render] Restoring checkpoint: ${restoreEl.id}`);
+        const base = await getStore().load(restoreEl.id);
         if (!base) {
+          console.warn(`[3D-Render] Checkpoint not found: ${restoreEl.id}`);
           return {
             content: [{ type: "text", text: `Checkpoint "${restoreEl.id}" not found. It may have expired or never existed.` }],
             isError: true,
@@ -101,7 +108,8 @@ Call 3d_read_me first to learn the element format.`,
       }
 
       const checkpointId = crypto.randomUUID().replace(/-/g, "").slice(0, 18);
-      await store.save(checkpointId, { elements: resolvedElements });
+      console.log(`[3D-Render] Saving new checkpoint: ${checkpointId}`);
+      await getStore().save(checkpointId, { elements: resolvedElements });
 
 
       return {
@@ -122,7 +130,8 @@ Call 3d_read_me first to learn the element format.`,
       annotations: { readOnlyHint: true }
     },
     async ({ id }) => {
-      const data = await store.load(id);
+      console.log(`[3D-Render] Reading checkpoint: ${id}`);
+      const data = await getStore().load(id);
       return { content: [{ type: "text", text: JSON.stringify(data || { elements: [] }) }] };
     }
   );
@@ -133,7 +142,8 @@ Call 3d_read_me first to learn the element format.`,
       inputSchema: z.object({ id: z.string(), elements: z.array(z.any()) })
     },
     async ({ id, elements }) => {
-      await store.save(id, { elements });
+      console.log(`[3D-Render] Saving checkpoint manually: ${id}`);
+      await getStore().save(id, { elements });
       return { content: [{ type: "text", text: "Saved" }] };
     }
   );
