@@ -191,7 +191,7 @@ Call 3d_read_me first to learn the element format.`,
  */
 export function createServer(): McpServer {
   const server = new McpServer({
-    name: "XLab 3D Render",
+    name: "XLab-3D-Render",
     version: "1.0.0",
   });
 
