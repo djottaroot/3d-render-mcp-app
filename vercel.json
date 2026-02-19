@@ -37,7 +37,8 @@
   ],
   "functions": {
     "api/mcp.ts": {
-      "includeFiles": "dist/**"
+      "includeFiles": "dist/**",
+      "maxDuration": 60
     }
   },
   "$schema": "https://openapi.vercel.sh/vercel.json",

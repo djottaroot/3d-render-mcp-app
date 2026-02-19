@@ -17,8 +17,6 @@
     "prepublishOnly": "bun run build"
   },
   "dependencies": {
-    "@jscad/io": "2.4.13",
-    "@jscad/modeling": "2.12.7",
     "@modelcontextprotocol/ext-apps": "^1.0.1",
     "@modelcontextprotocol/sdk": "^1.26.0",
     "@upstash/redis": "^1.36.2",

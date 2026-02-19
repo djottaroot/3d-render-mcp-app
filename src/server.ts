@@ -16,13 +16,11 @@ const DIST_DIR = import.meta.filename.endsWith(".ts")
 let store: CheckpointStore | null = null;
 function getStore(): CheckpointStore {
   if (store) return store;
-  const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
-  const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 
-  if (redisUrl && redisToken) {
-    console.log("[3D-Render] Initializing RedisCheckpointStore");
-    store = RedisCheckpointStore.getInstance(redisUrl, redisToken);
-  } else {
+  console.log("[3D-Render] Initializing RedisCheckpointStore");
+  store = RedisCheckpointStore.getInstance();
+
+  if (!store) {
     console.warn("[3D-Render] Using MemoryCheckpointStore (Redis credentials missing)");
     store = MemoryCheckpointStore.getInstance();
   }

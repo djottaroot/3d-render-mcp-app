@@ -1,5 +1,8 @@
 import { Redis } from "@upstash/redis";
 
+const url = process.env.UPSTASH_REDIS_REST_URL!;
+const token = process.env.UPSTASH_REDIS_REST_TOKEN!;
+
 export interface CheckpointData {
   elements: any[];
 }
@@ -13,18 +16,23 @@ export class RedisCheckpointStore implements CheckpointStore {
   private static instance: RedisCheckpointStore | null = null;
   private redis: Redis;
 
-  private constructor(url: string, token: string) {
+  private constructor() {
     this.redis = new Redis({
       url,
       token,
     });
   }
 
-  public static getInstance(url: string, token: string): RedisCheckpointStore {
-    if (!RedisCheckpointStore.instance) {
-      RedisCheckpointStore.instance = new RedisCheckpointStore(url, token);
+  public static getInstance(): RedisCheckpointStore | null {
+    try {
+      if (!RedisCheckpointStore.instance) {
+        RedisCheckpointStore.instance = new RedisCheckpointStore();
+      }
+      return RedisCheckpointStore.instance;
+    } catch (error) {
+      console.error("Failed to initialize RedisCheckpointStore:", error);
+      return null;
     }
-    return RedisCheckpointStore.instance;
   }
 
   async save(id: string, data: CheckpointData): Promise<void> {
