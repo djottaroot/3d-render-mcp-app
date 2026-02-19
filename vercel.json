@@ -35,6 +35,11 @@
       ]
     }
   ],
+  "functions": {
+    "api/mcp.ts": {
+      "includeFiles": "dist/**"
+    }
+  },
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "bunVersion": "1.x"
 }

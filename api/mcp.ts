@@ -2,10 +2,13 @@ import { createMcpHandler } from "mcp-handler";
 import path from "node:path";
 import { registerTools } from "../src/server.js";
 
+import { fileURLToPath } from "node:url";
+
 const mcpHandler = createMcpHandler(
   (server) => {
     try {
-      const distDir = path.join(process.cwd(), "dist");
+      const __dirname = path.dirname(fileURLToPath(import.meta.url));
+      const distDir = path.resolve(__dirname, "../dist");
       registerTools(server, distDir);
     } catch (error) {
       console.error("[XLab 3D Render] Fatal error during registerTools:", error);
