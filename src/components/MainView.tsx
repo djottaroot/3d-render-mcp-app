@@ -36,9 +36,9 @@ export function MainView({
     <div className={`flex flex-col w-full h-full bg-transparent overflow-hidden text-[10px] ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
       <header className={`px-3 py-1 ${theme === 'dark' ? 'bg-[#1a1a1a]/80 border-white/5' : 'bg-white/80 border-black/5'} backdrop-blur-md border-b flex justify-between items-center z-10 shrink-0`}>
         <div className="flex items-center gap-2">
-          <span className={`font-black tracking-tight uppercase ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>{agentInfo.name}</span>
+          <span className={`font-black tracking-tight ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>{agentInfo.name}</span>
           <span className="text-zinc-600">-</span>
-          <span className={`font-bold tracking-widest uppercase ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>{agentInfo.label}</span>
+          <span className={`font-bold tracking-widest ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>{agentInfo.label}</span>
         </div>
         <div className="flex items-center gap-3">
           {checkpointId && (
@@ -49,7 +49,7 @@ export function MainView({
           {loading && (
             <div className="flex items-center gap-1.5 text-blue-400/80">
               <Loader strokeWidth={3} className="w-1.5 h-1.5 animate-spin" />
-              <span className="font-bold uppercase tracking-widest text-[6px] leading-none">{t("generating")}</span>
+              <span className="font-bold tracking-widest text-[6px] leading-none">{t("generating")}</span>
             </div>
           )}
         </div>

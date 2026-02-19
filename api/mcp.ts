@@ -6,7 +6,9 @@ import { registerTools } from "../src/server.js";
 const mcpHandler = createMcpHandler(
   (server) => {
     // In Vercel environment, the dist directory is at the root of the project after build
+    // but sometimes it's nested or we need to fall back to process.cwd()
     const distDir = path.join(process.cwd(), "dist");
+    console.log(`[MCP] Registering tools with distDir: ${distDir}`);
     registerTools(server, distDir);
   },
   { serverInfo: { name: "3D-Render", version: "1.0.0" } },

@@ -145,18 +145,28 @@ Call 3d_read_me first to learn the element format.`,
     async (): Promise<ReadResourceResult> => {
       const pathsToTry = [
         path.join(distDir, "mcp-app.html"),
-        path.join(distDir, "src", "mcp-app.html")
+        path.join(distDir, "src", "mcp-app.html"),
+        path.join(process.cwd(), "dist", "mcp-app.html"),
+        path.join(process.cwd(), "mcp-app.html"),
       ];
 
       let html = "";
       for (const p of pathsToTry) {
         try {
           html = await fs.readFile(p, "utf-8");
+          console.log(`[3D-Render] Successfully read mcp-app.html from: ${p}`);
           break;
-        } catch (e) { continue; }
+        } catch (e) {
+          console.log(`[3D-Render] Checked path ${p}: Not found`);
+          continue;
+        }
       }
 
-      if (!html) throw new Error(`Could not find mcp-app.html`);
+      if (!html) {
+        const error = `Could not find mcp-app.html in any of: ${pathsToTry.join(", ")}`;
+        console.error(`[3D-Render] ${error}`);
+        throw new Error(error);
+      }
 
       return {
         contents: [{
