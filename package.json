@@ -9,18 +9,15 @@
     "3d-render-mcp": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc --noEmit && cross-env INPUT=src/mcp-app.html vite build && mv dist/src/mcp-app.html dist/mcp-app.html && rmdir dist/src && tsc -p tsconfig.server.json && bun build src/server.ts --outdir dist --target node && bun build src/main.ts --outfile dist/index.js --target node --banner \"#!/usr/bin/env node\"",
-    "watch": "cross-env INPUT=src/mcp-app.html vite build --watch",
-    "serve": "bun --watch src/main.ts",
-    "start": "bun dist/index.js",
-    "dev": "concurrently 'bun run watch' 'cross-env PORT=3000 bun --watch src/main.ts'",
-    "prepublishOnly": "bun run build"
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json && bun build src/server.ts --outdir dist --target node && bun build src/main.ts --outfile dist/index.js --target node --banner \"#!/usr/bin/env node\"",
+    "dev": "concurrently \"vite build --watch\" \"bun --watch src/main.ts\"",
+    "start": "bun dist/index.js"
   },
   "dependencies": {
     "@jscad/io": "2.4.13",
     "@jscad/modeling": "2.12.7",
-    "@modelcontextprotocol/ext-apps": "^1.0.1",
-    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@modelcontextprotocol/ext-apps": "^0.4.0",
+    "@modelcontextprotocol/sdk": "^1.24.0",
     "@upstash/redis": "^1.36.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
