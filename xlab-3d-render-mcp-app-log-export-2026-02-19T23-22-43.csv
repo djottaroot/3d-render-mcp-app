@@ -1,0 +1,71 @@
+TimeUTC,timestampInMs,requestPath,requestMethod,requestQueryString,responseStatusCode,requestId,requestUserAgent,level,environment,branch,vercelCache,type,function,host,deploymentDomain,deploymentId,durationMs,region,maxMemoryUsed,memorySize,message,projectId,traceId,sessionId,invocationId,instanceId,concurrency
+2026-02-19 23:20:42,1771543242150,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,s4mtv-1771543241957-41e404546a61,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:41,1771543241957,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,s4mtv-1771543241957-41e404546a61,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,9,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW399CP9A0FFX0SQ5PE0R2K,k4ZfFoySyLOD,1
+2026-02-19 23:20:39,1771543239367,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,wtj6t-1771543239258-3d3f933b9795,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:39,1771543239258,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,wtj6t-1771543239258-3d3f933b9795,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,10,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW396NQ6H5V0G57NEXRAKHK,k4ZfFoySyLOD,1
+2026-02-19 23:20:32,1771543232892,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,kltlz-1771543232687-b49e72f3c4b1,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:32,1771543232687,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,kltlz-1771543232687-b49e72f3c4b1,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,9,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW390BAZFR19411XHG709TS,k4ZfFoySyLOD,1
+2026-02-19 23:20:32,1771543232227,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,5f947-1771543232139-022d0eddffd3,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:32,1771543232139,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,5f947-1771543232139-022d0eddffd3,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,9,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW38ZP20NA7CPY67663B118,k4ZfFoySyLOD,1
+2026-02-19 23:20:31,1771543231389,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,z49d4-1771543231162-ebdbb2d19757,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:31,1771543231162,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,500,z49d4-1771543231162-ebdbb2d19757,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-app.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,19,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW38YW88ZHPXBDPN2HPE7VE,k4ZfFoySyLOD,1
+2026-02-19 23:20:28,1771543228327,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,200,5f947-1771543227970-fb15733b8f80,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,request.url:  https://xlab-3d-render-mcp-app.vercel.app/mcp,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:28,1771543228337,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,200,5f947-1771543227970-fb15733b8f80,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,distDir: /var/task/dist,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:28,1771543228340,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,200,5f947-1771543227970-fb15733b8f80,node,info,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,,,,,"server: McpServer {
+  _registeredResources: {},
+  _registeredResourceTemplates: {},
+  _registeredTools: {},
+  _registeredPrompts: {},
+  _toolHandlersInitialized: false,
+  _completionHandlerInitialized: false,
+  _resourceHandlersInitialized: false,
+  _promptHandlersInitialized: false,
+  server: Server {
+    _options: {},
+    _requestMessageId: 0,
+    _requestHandlers: Map(2) {
+      'ping' => [Function (anonymous)],
+      'initialize' => [Function (anonymous)]
+    },
+    _requestHandlerAbortControllers: Map(0) {},
+    _notificationHandlers: Map(3) {
+      'notifications/cancelled' => [Function (anonymous)],
+      'notifications/progress' => [Function (anonymous)],
+      'notifications/initialized' => [Function (anonymous)]
+    },
+    _responseHandlers: Map(0) {},
+    _progressHandlers: Map(0) {},
+    _timeoutInfo: Map(0) {},
+    _pendingDebouncedNotifications: Set(0) {},
+    _taskProgressTokens: Map(0) {},
+    _requestResolvers: Map(0) {},
+    _taskStore: undefined,
+    _taskMessageQueue: undefined,
+    _serverInfo: { name: 'XLab-3D-Render', version: '1.0.0' },
+    _loggingLevels: Map(0) {},
+    LOG_LEVEL_SEVERITY: Map(8) {
+      'debug' => 0,
+      'info' => 1,
+      'notice' => 2,
+      'warning' => 3,
+      'error' => 4,
+      'critical' => 5,
+      'alert' => 6,
+      'emergency' => 7
+    },
+    isMessageIgnored: [Function (anonymous)],
+    _capabilities: {},
+    _instructions: undefined,
+    _jsonSchemaValidator: AjvJsonSchemaValidator { _ajv: [Ajv] }
+  }
+}",prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:20:27,1771543227970,xlab-3d-render-mcp-app.vercel.app/mcp,POST,,200,5f947-1771543227970-fb15733b8f80,node,,production,,MISS,function,/api/mcp,xlab-3d-render-mcp-app.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,55,iad1,278,2048,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,01KHW38VW6XN8SM9NB9SZVPEVP,k4ZfFoySyLOD,1
+2026-02-19 23:19:32,1771543172082,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/favicon.png,GET,,404,6k6nk-1771543172082-722c5a6b3412,vercel-favicon/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,2,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:19:32,1771543172077,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/favicon.ico,GET,,404,6k6nk-1771543172077-b6da619dc126,vercel-favicon/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,2,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:19:31,1771543171873,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/,GET,,404,6k6nk-1771543171873-7cbc9ddb17cc,vercel-favicon/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,121,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019781,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/favicon.ico,GET,,404,47dnk-1771543019781-44cfc3c08e10,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,3,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019757,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/favicon.ico,GET,,404,ll6bv-1771543019757-e645fde4e2ee,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,6,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019630,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/,GET,,404,ww9nn-1771543019630-6d9a2069ff80,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,98,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019492,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/,GET,,404,xf5wv-1771543019492-11d21a9b9992,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,219,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019371,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/,GET,,404,ttkzp-1771543019371-1616b88e41e7,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,115,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
+2026-02-19 23:16:59,1771543019242,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app/,GET,,404,q5vtz-1771543019242-24f80388410b,vercel-screenshot/1.0,,production,,,static,/404.html,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,xlab-3d-render-mcp-3jmgv32yx-djottaroots-projects.vercel.app,dpl_2S1aPuRg3CW7ey68pJqopSGG22Lc,184,sfo1,,,,prj_JuENJCNi4uPAq3vuxOd01C8IubUi,,,,,
