@@ -9,16 +9,19 @@
     "xlab-3d-render-mcp-app": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc --noEmit && cross-env INPUT=src/mcp-app.html vite build && mv dist/src/mcp-app.html dist/mcp-app.html && rmdir dist/src && tsc -p tsconfig.server.json && bun build src/server.ts --outdir dist --target node && bun build src/main.ts --outfile dist/index.js --target node --banner \"#!/usr/bin/env node\"",
+    "build:ui": "cross-env INPUT=src/mcp-app.html vite build && mv dist/src/mcp-app.html dist/mcp-app.html && rmdir dist/src",
+    "build:server": "esbuild src/server.ts --bundle --platform=node --format=esm --outfile=dist/server.js --external:three --external:gsap --external:@modelcontextprotocol/sdk --external:mcp-handler",
+    "build:index": "esbuild src/main.ts --bundle --platform=node --format=esm --outfile=dist/index.js --banner:js=\"#!/usr/bin/env node\" --external:three --external:gsap --external:@modelcontextprotocol/sdk --external:mcp-handler",
+    "build": "tsc --noEmit && npm run build:ui && npm run build:server && npm run build:index",
     "watch": "cross-env INPUT=src/mcp-app.html vite build --watch",
-    "serve": "bun --watch src/main.ts",
-    "start": "bun dist/index.js",
-    "dev": "concurrently 'bun run watch' 'cross-env PORT=3000 bun --watch src/main.ts'",
-    "prepublishOnly": "bun run build"
+    "serve": "tsx watch src/main.ts",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npm run watch\" \"cross-env PORT=3000 npm run serve\"",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/ext-apps": "^1.0.1",
-    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@modelcontextprotocol/sdk": "1.25.2",
     "@upstash/redis": "^1.36.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -47,8 +50,10 @@
     "autoprefixer": "^10.4.24",
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.0",
+    "esbuild": "^0.25.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
+    "tsx": "^4.19.2",
     "typescript": "^5.0.0",
     "vite": "^6.0.0",
     "vite-plugin-singlefile": "^2.0.0"

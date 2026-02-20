@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bun run build",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "cleanUrls": false,
   "rewrites": [
@@ -8,7 +8,11 @@
       "destination": "/api/mcp"
     },
     {
-      "source": "/mcp/(.*)",
+      "source": "/sse",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/message",
       "destination": "/api/mcp"
     }
   ],
@@ -37,6 +41,5 @@
       "maxDuration": 60
     }
   },
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "bunVersion": "1.x"
+  "$schema": "https://openapi.vercel.sh/vercel.json"
 }
