@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -17,7 +18,7 @@ interface Renderer3DProps {
 export function Renderer3D({ elements, cameraTarget, autoRotate = true, theme = 'dark' }: Renderer3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const objectsRef = useRef<Map<string, THREE.Object3D>>(new Map());
-  const prevElementsCount = useRef(0);
+  const placeholderRef = useRef<THREE.Sprite | null>(null);
   const sceneRef = useRef<{
     scene: THREE.Scene;
     camera: THREE.PerspectiveCamera;
@@ -124,12 +125,57 @@ export function Renderer3D({ elements, cameraTarget, autoRotate = true, theme = 
   }, []);
 
   useEffect(() => {
-    if (!elements || !sceneRef.current) return;
+    if (!sceneRef.current) return;
 
     const { scene, controls } = sceneRef.current;
+    const isDark = theme === 'dark';
 
-    // Detect new elements for logging
-    const newElementsCount = elements.length;
+    // Handle Placeholder
+    if (!elements || elements.length === 0) {
+      if (!placeholderRef.current) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.font = 'bold 24px Inter, system-ui, sans-serif';
+          ctx.fillStyle = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText("Processing environment...", 256, 64);
+
+          const texture = new THREE.CanvasTexture(canvas);
+          const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+          const sprite = new THREE.Sprite(material);
+          sprite.scale.set(8, 2, 1);
+          sprite.position.set(0, 2, 0);
+          scene.add(sprite);
+          placeholderRef.current = sprite;
+
+          // Pulse animation
+          gsap.to(sprite.scale, {
+            x: 8.5, y: 2.15,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+          });
+        }
+      }
+      return;
+    } else if (placeholderRef.current) {
+      gsap.to(placeholderRef.current.scale, {
+        x: 0, y: 0,
+        duration: 0.5,
+        ease: "back.in(2.5)",
+        onComplete: () => {
+          if (placeholderRef.current) {
+            scene.remove(placeholderRef.current);
+            placeholderRef.current = null;
+          }
+        }
+      });
+    }
 
     // Auto-rotate logic - stop while rendering new things
     if (controls) controls.autoRotate = false;
@@ -205,14 +251,24 @@ export function Renderer3D({ elements, cameraTarget, autoRotate = true, theme = 
 
     // Re-enable turntable after a short delay once elements are "popped", 
     // ONLY if user hasn't interacted yet AND autoRotate is enabled.
-    setTimeout(() => {
-      if (sceneRef.current && !hasInteractedRef.current && autoRotate) {
+    const timer = setTimeout(() => {
+      if (sceneRef.current && autoRotate && !hasInteractedRef.current) {
         sceneRef.current.controls.autoRotate = true;
       }
     }, 3000);
 
-    prevElementsCount.current = newElementsCount;
-  }, [elements, autoRotate]);
+    return () => clearTimeout(timer);
+  }, [elements, autoRotate, theme]);
+
+  // Handle explicit autoRotate toggle
+  useEffect(() => {
+    if (sceneRef.current && autoRotate) {
+      sceneRef.current.controls.autoRotate = true;
+      hasInteractedRef.current = false; // Reset interaction if user explicitly enables rotate
+    } else if (sceneRef.current) {
+      sceneRef.current.controls.autoRotate = false;
+    }
+  }, [autoRotate]);
 
   // Manual Camera Movement Effect
   useEffect(() => {
@@ -264,13 +320,10 @@ export function Renderer3D({ elements, cameraTarget, autoRotate = true, theme = 
     // Update GridHelper color (find it in scene)
     scene.traverse((child) => {
       if (child instanceof THREE.GridHelper) {
-        // We can't easily animate GridHelper colors without replacing it or hacking the material
-        // For simplicity, let's just swap it or leave it for now. 
-        // Better: update the material color if possible.
         (child.material as any).color.set(isDark ? 0x333333 : 0xcccccc);
       }
     });
   }, [theme]);
 
-  return <div ref={containerRef} className="w-full h-full" />;
+  return <div ref={containerRef} className="w-full h-full relative" />;
 }

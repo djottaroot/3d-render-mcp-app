@@ -17,27 +17,25 @@ function App() {
   const [elements, setElements] = useState<any[]>([]);
   const [checkpointId, setCheckpointId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [agentInfo, setAgentInfo] = useState({ name: '🤖 @DaVinci', label: '3D Scene' });
+  const [agentInfo, setAgentInfo] = useState({ name: '🤖 @Kéré', label: '3D Scene' });
   const [autoRotateEnabled, setAutoRotateEnabled] = useState(false);
   const [cameraTarget, setCameraTarget] = useState<any>(null);
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
-  const { app, error } = useApp({
+  const { app } = useApp({
     appInfo: { name: "xlab-3d-render-mcp-app", version: "1.0.0" },
     capabilities: {},
-    onAppCreated: (app) => {
+    onAppCreated: (app: any) => {
       const getAgentInfo = (toolName: string) => {
-        let name = '🤖 @Sarki';
+        let name = '🤖 @Kéré';
         let label = toolName;
 
         switch (toolName.toLocaleLowerCase()) {
           case '3d_render_scene':
-            name = '🤖 @DaVinci';
             label = '3D Scene';
             break;
           case 'read_checkpoint':
           case 'save_checkpoint':
-            name = '🤖 @Picasso';
             label = toolName === 'read_checkpoint' ? 'Lecture' : 'Sauvegarde';
             break;
         }
@@ -109,23 +107,24 @@ function App() {
     },
   });
 
-  if (error) return (
-    <div className="flex flex-col items-center justify-center h-screen w-full bg-transparent text-white p-8 animate-in fade-in duration-700">
-      <div className="glass-effect p-8 rounded-5xl flex flex-col items-center gap-6 max-w-sm text-center shadow-2xl border border-red-500/20">
-        <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 text-2xl font-bold">!</div>
-        <div className="space-y-2">
-          <h1 className="text-2xl font-black tracking-tight">{t('mcp_error')}</h1>
-          <p className="text-zinc-400 font-medium text-sm leading-relaxed lowercase">{error.message}</p>
-        </div>
-        <button
-          onClick={() => window.location.reload()}
-          className="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-2xl font-bold transition-all duration-300 hover:scale-105"
-        >
-          {t('retry')}
-        </button>
-      </div>
-    </div>
-  );
+  // !!! Ne décommente pas !!!
+  // if (error) return (
+  //   <div className="flex flex-col items-center justify-center h-screen w-full bg-transparent text-white p-8 animate-in fade-in duration-700">
+  //     <div className="glass-effect p-8 rounded-5xl flex flex-col items-center gap-6 max-w-sm text-center shadow-2xl border border-red-500/20">
+  //       <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 text-2xl font-bold">!</div>
+  //       <div className="space-y-2">
+  //         <h1 className="text-2xl font-black tracking-tight">{t('mcp_error')}</h1>
+  //         <p className="text-zinc-400 font-medium text-sm leading-relaxed lowercase">{error.message}</p>
+  //       </div>
+  //       <button
+  //         onClick={() => window.location.reload()}
+  //         className="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-2xl font-bold transition-all duration-300 hover:scale-105"
+  //       >
+  //         {t('retry')}
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
 
   if (!app) return <LoadingScreen theme={theme} label={t('initialization')} />;
 
@@ -140,6 +139,7 @@ function App() {
       autoRotateEnabled={autoRotateEnabled}
       setAutoRotateEnabled={setAutoRotateEnabled}
       cameraTarget={cameraTarget}
+      setCameraTarget={setCameraTarget}
     />
   );
 }
