@@ -62,7 +62,7 @@ function App() {
         }
       };
 
-      app.ontoolinput = (input) => {
+      app.ontoolinput = (input: any) => {
         setLoading(true);
 
         const toolName = (input as any).name || (input as any).toolName;
@@ -76,7 +76,7 @@ function App() {
         }
       };
 
-      app.ontoolresult = (result) => {
+      app.ontoolresult = (result: any) => {
         setLoading(false);
 
         // Try structured content first
